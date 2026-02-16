@@ -217,7 +217,7 @@ const App: React.FC = () => {
                 </div>
                 <div>
                    <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-terracotta mb-4">Connect</h4>
-                   <p className="text-xl font-light">(470) 756-5894</p>
+                   <a href="tel:4707565894" className="text-xl font-light hover:text-terracotta transition-colors">(470) 756-5894</a>
                 </div>
               </div>
               <div className="pt-8">

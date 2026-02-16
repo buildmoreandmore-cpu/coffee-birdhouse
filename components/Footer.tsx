@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Instagram, Facebook, MapPin, Phone, Mail } from 'lucide-react';
+import { Instagram, MapPin, Phone, Mail } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -13,8 +13,7 @@ const Footer: React.FC = () => {
             Nestled in the Grange Hamlet of Serenbe, Birdhouse is a haven for those who appreciate the craft of slow-roast coffee and the warmth of genuine community.
           </p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-gold transition-colors"><Instagram size={24} /></a>
-            <a href="#" className="hover:text-gold transition-colors"><Facebook size={24} /></a>
+            <a href="https://www.instagram.com/birdhouse.market" target="_blank" rel="noreferrer" className="hover:text-gold transition-colors flex items-center gap-2"><Instagram size={24} /> <span className="text-sm">@birdhouse.market</span></a>
           </div>
         </div>
 
@@ -32,7 +31,7 @@ const Footer: React.FC = () => {
             </li>
             <li className="flex items-center gap-3">
               <Mail size={18} className="shrink-0 text-gold" />
-              <span>hello@birdhousecoffee.com</span>
+              <span>source@birdhousemarket.info</span>
             </li>
           </ul>
         </div>
