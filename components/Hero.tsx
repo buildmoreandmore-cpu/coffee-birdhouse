@@ -27,12 +27,7 @@ const Hero: React.FC<HeroProps> = ({ onExplore }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="block text-gold text-xs md:text-sm font-semibold tracking-[0.4em] uppercase mb-6 opacity-80">
-            Crafting Coffee & Community at Serenbe
-          </span>
-          <h1 className="text-7xl md:text-9xl font-serif text-cream leading-none mb-10 tracking-tight">
-            Birdhouse
-          </h1>
+          <img src="/logo.png" alt="Birdhouse Coffee Room" className="h-40 md:h-56 lg:h-64 w-auto mx-auto mb-8 drop-shadow-2xl" />
           <p className="text-xl md:text-2xl text-cream/80 font-light max-w-2xl mx-auto mb-12 leading-relaxed italic">
             A window into the unhurried life. Experience the craft of slow-roast coffee in the heart of Grange Hamlet.
           </p>

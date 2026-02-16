@@ -36,11 +36,11 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <button 
+        <button
           onClick={() => onNavigate('home')}
-          className="text-2xl md:text-3xl font-serif font-bold tracking-tight text-espresso"
+          className="flex items-center gap-3"
         >
-          Birdhouse
+          <img src="/logo.png" alt="Birdhouse Coffee Room" className="h-12 md:h-14 w-auto" />
         </button>
 
         {/* Desktop Nav */}

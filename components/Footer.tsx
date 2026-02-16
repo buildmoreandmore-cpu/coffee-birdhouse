@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
         {/* Brand */}
         <div className="col-span-1 md:col-span-2">
-          <h2 className="text-3xl font-serif text-cream mb-6">Birdhouse</h2>
+          <img src="/logo.png" alt="Birdhouse Coffee Room" className="h-20 w-auto mb-6 brightness-0 invert opacity-80" />
           <p className="max-w-md mb-8 leading-relaxed">
             Nestled in the Grange Hamlet of Serenbe, Birdhouse is a haven for those who appreciate the craft of slow-roast coffee and the warmth of genuine community.
           </p>
