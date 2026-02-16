@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <script>
       tailwind.config = {
         theme: {
@@ -45,6 +46,10 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
       }
+      /* Custom map styling to match brand aesthetic */
+      .leaflet-container {
+        filter: sepia(10%) contrast(90%) brightness(105%) hue-rotate(-10deg);
+      }
     </style>
   <script type="importmap">
 {
@@ -53,7 +58,8 @@
     "framer-motion": "https://esm.sh/framer-motion@^12.34.0",
     "react": "https://esm.sh/react@^19.2.4",
     "react/": "https://esm.sh/react@^19.2.4/",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "leaflet": "https://esm.sh/leaflet@^1.9.4"
   }
 }
 </script>

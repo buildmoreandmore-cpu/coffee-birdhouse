@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Section from './components/Section';
 import Footer from './components/Footer';
+import InteractiveMap from './components/InteractiveMap';
 import { Page } from './types';
 import { MENU_ITEMS, PARTNERS, EVENTS } from './constants';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -156,7 +157,7 @@ const App: React.FC = () => {
                 </div>
               </div>
               <a 
-                href="https://maps.google.com" 
+                href="https://www.google.com/maps/dir/?api=1&destination=10625+Serenbe+Lane+Unit+A+Chattahoochee+Hills+GA+30268" 
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-4 text-xs font-bold uppercase tracking-widest border-b-2 border-espresso pb-2 hover:text-terracotta hover:border-terracotta transition-all"
@@ -165,12 +166,8 @@ const App: React.FC = () => {
               </a>
             </div>
           </div>
-          <div className="h-[400px] lg:h-auto min-h-[500px] relative overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1521017432531-fbd92d744264?auto=format&fit=crop&q=80&w=1200" 
-              className="absolute inset-0 w-full h-full object-cover" 
-              alt="Serenbe Community"
-            />
+          <div className="h-[400px] lg:h-auto min-h-[500px] relative overflow-hidden bg-linen shadow-inner">
+            <InteractiveMap />
           </div>
         </div>
       </Section>
