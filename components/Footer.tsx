@@ -1,6 +1,36 @@
 
-import React from 'react';
-import { Instagram, MapPin, Phone, Mail } from 'lucide-react';
+import React, { useState } from 'react';
+import { Instagram, MapPin, Phone, Mail, Zap } from 'lucide-react';
+
+const FooterDropForm: React.FC = () => {
+  const [email, setEmail] = useState('');
+  const [joined, setJoined] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) setJoined(true);
+  };
+
+  if (joined) {
+    return <p className="text-gold text-sm font-medium">You're in. Watch for The Drop.</p>;
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="flex">
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="Email address"
+        required
+        className="bg-cream/5 border border-cream/20 px-4 py-2 text-sm w-full focus:outline-none focus:border-gold transition-colors"
+      />
+      <button className="bg-gold text-warmblack px-4 py-2 text-xs font-bold uppercase tracking-widest hover:bg-cream transition-all whitespace-nowrap">
+        Join
+      </button>
+    </form>
+  );
+};
 
 const Footer: React.FC = () => {
   return (
@@ -36,20 +66,14 @@ const Footer: React.FC = () => {
           </ul>
         </div>
 
-        {/* Newsletter */}
+        {/* The Drop CTA */}
         <div>
-          <h3 className="text-cream text-sm font-bold tracking-widest uppercase mb-6">Stay Connected</h3>
-          <p className="text-xs mb-4">Join our list for weekly roast highlights and event updates.</p>
-          <form className="flex">
-            <input 
-              type="email" 
-              placeholder="Email address"
-              className="bg-cream/5 border border-cream/20 px-4 py-2 text-sm w-full focus:outline-none focus:border-gold transition-colors"
-            />
-            <button className="bg-gold text-warmblack px-4 py-2 text-xs font-bold uppercase tracking-widest hover:bg-cream transition-all">
-              Join
-            </button>
-          </form>
+          <div className="flex items-center gap-2 mb-6">
+            <Zap size={14} className="text-gold" />
+            <h3 className="text-cream text-sm font-bold tracking-widest uppercase">The Drop</h3>
+          </div>
+          <p className="text-xs mb-4 leading-relaxed">First access to new roasts, limited collabs & event RSVPs before they go public.</p>
+          <FooterDropForm />
         </div>
       </div>
 

@@ -1,19 +1,20 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Zap } from 'lucide-react';
 
 interface HeroProps {
   onExplore: () => void;
+  onJoinDrop: () => void;
 }
 
-const Hero: React.FC<HeroProps> = ({ onExplore }) => {
+const Hero: React.FC<HeroProps> = ({ onExplore, onJoinDrop }) => {
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-warmblack">
       {/* Background Image Placeholder with Overlay */}
-      <div 
+      <div
         className="absolute inset-0 opacity-50 bg-cover bg-center scale-105"
-        style={{ 
+        style={{
           backgroundImage: 'url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=2000")',
           filter: 'sepia(30%) contrast(110%) brightness(0.8)'
         }}
@@ -29,25 +30,28 @@ const Hero: React.FC<HeroProps> = ({ onExplore }) => {
         >
           <img src="/logo.png" alt="Birdhouse Coffee Room" className="h-40 md:h-56 lg:h-64 w-auto mx-auto mb-8 drop-shadow-2xl" />
           <p className="text-xl md:text-2xl text-cream/80 font-light max-w-2xl mx-auto mb-12 leading-relaxed italic">
-            A window into the unhurried life. Experience the craft of slow-roast coffee in the heart of Grange Hamlet.
+            A community worth being part of. First access to roasts, collabs & events in the heart of Grange Hamlet.
           </p>
-          
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-            <button 
+
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+            <button
+              onClick={onJoinDrop}
+              className="group px-12 py-5 bg-terracotta text-cream text-xs font-bold tracking-[0.2em] uppercase hover:bg-roast transition-all duration-500 shadow-xl flex items-center gap-3"
+            >
+              <Zap size={14} /> Join The Drop
+            </button>
+            <button
               onClick={onExplore}
-              className="group px-12 py-5 bg-terracotta text-cream text-xs font-bold tracking-[0.2em] uppercase hover:bg-roast transition-all duration-500 shadow-xl"
+              className="px-12 py-5 border border-cream/20 text-cream text-xs font-bold tracking-[0.2em] uppercase hover:bg-cream/10 transition-all duration-500"
             >
               Explore the Pour
             </button>
-            <div className="text-cream/60 text-sm font-medium tracking-widest uppercase border-l border-cream/20 pl-8 hidden md:block">
-              Daily • 7:30 – 2:00
-            </div>
           </div>
         </motion.div>
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div 
+      <motion.div
         className="absolute bottom-12 left-1/2 -translate-x-1/2 text-cream/30 flex flex-col items-center gap-3"
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 2.5 }}
