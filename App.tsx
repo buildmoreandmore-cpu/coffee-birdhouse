@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Section from './components/Section';
@@ -7,14 +7,87 @@ import Footer from './components/Footer';
 import InteractiveMap from './components/InteractiveMap';
 import TheDropModal from './components/TheDropModal';
 import ExitIntentPopup from './components/ExitIntentPopup';
+import {
+  CoffeeNearPalmetto,
+  CoffeeNearFairburn,
+  CoffeeNearPeachtreeCity,
+  CoffeeNearNewnan,
+  CoffeeNearFayetteville,
+  CoffeeNearCochranMill,
+  CoffeeNearGARenFest,
+  FAQPage,
+  BestCoffeeSouthAtlanta,
+} from './components/SEOPages';
 import { Page } from './types';
 import { MENU_ITEMS, PARTNERS, EVENTS, TESTIMONIALS } from './constants';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Coffee, Star, Map as MapIcon, ChevronRight, Zap, Download, Palette, MapPin, Calendar, Camera } from 'lucide-react';
 
+const PAGE_TITLES: Record<Page, string> = {
+  home: 'Birdhouse Coffee Room & Market — Specialty Coffee in Serenbe, Chattahoochee Hills GA',
+  menu: 'Menu — Birdhouse Coffee Room & Market | Pour Over, Espresso, Tea & Pastries',
+  about: 'The Collab Wall — Art, Coffee & Community | Birdhouse Coffee Room',
+  market: 'The Market — Whole Bean, Brewing Equipment & Artisan Goods | Birdhouse Coffee',
+  events: 'Events — Cupping Labs, Story Time & Community Gatherings | Birdhouse Coffee',
+  visit: 'Serenbe Saturday — Day Trip Guide from Atlanta | Birdhouse Coffee Room',
+  faq: 'FAQ — Birdhouse Coffee Room & Market | Serenbe, Chattahoochee Hills GA',
+  'coffee-near-palmetto-ga': 'Best Coffee Shop Near Palmetto, GA — Birdhouse Coffee Room in Serenbe',
+  'coffee-near-fairburn-ga': 'Best Coffee Shop Near Fairburn, GA — Birdhouse Coffee Room in Serenbe',
+  'coffee-near-peachtree-city-ga': 'Best Coffee Shop Near Peachtree City, GA — Birdhouse Coffee Room',
+  'coffee-near-newnan-ga': 'Best Coffee Shop Near Newnan, GA — Birdhouse Coffee Room in Serenbe',
+  'coffee-near-fayetteville-ga': 'Best Coffee Shop Near Fayetteville, GA — Birdhouse Coffee Room',
+  'coffee-near-cochran-mill-park': 'Coffee Near Cochran Mill Park — Birdhouse Coffee Room, Chattahoochee Hills',
+  'coffee-near-georgia-renaissance-festival': 'Coffee Near Georgia Renaissance Festival — Birdhouse Coffee Room',
+  'best-coffee-south-of-atlanta': 'Best Specialty Coffee South of Atlanta — Birdhouse Coffee Room in Serenbe',
+};
+
+const PAGE_DESCRIPTIONS: Record<Page, string> = {
+  home: 'Birdhouse Coffee Room & Market — specialty micro-roasted coffee, pour overs, espresso, curated tea & artisan pastries in the Grange Hamlet of Serenbe, Chattahoochee Hills GA.',
+  menu: 'Explore our full menu of precision pour over coffee, single origin drip, espresso, Herbs & Kettles tea, and seasonal pastries by Bianca Cavandi.',
+  about: 'Meet the creatives behind Birdhouse — our roasting partners, pastry collaborator, and the rotating art exhibits on The Collab Wall.',
+  market: 'Shop whole-bean micro-roasts, brewing equipment, curated tea, and artisan goods at Birdhouse Coffee Room & Market in Serenbe.',
+  events: 'Thursday Cupping Labs, Saturday Story Time, and community gatherings at Birdhouse Coffee Room in the Grange Hamlet of Serenbe.',
+  visit: 'Plan your perfect Serenbe Saturday day trip from Atlanta — coffee, trails, bookshops, and farm-to-table dining starting at Birdhouse.',
+  faq: 'Frequently asked questions about Birdhouse Coffee Room & Market — hours, location, menu, events, and visiting Serenbe.',
+  'coffee-near-palmetto-ga': 'Looking for specialty coffee near Palmetto, GA? Birdhouse Coffee Room is just 10 minutes away in Serenbe with micro-roasted pour overs and espresso.',
+  'coffee-near-fairburn-ga': 'Best coffee near Fairburn, GA and the Georgia Renaissance Festival. Birdhouse Coffee Room in Serenbe is 15 minutes southwest.',
+  'coffee-near-peachtree-city-ga': 'Specialty coffee near Peachtree City, GA. Birdhouse Coffee Room in Serenbe is 20 minutes west with micro-roasted beans and artisan pastries.',
+  'coffee-near-newnan-ga': 'Best coffee shop near Newnan, GA. Birdhouse Coffee Room is 20 minutes west in Serenbe with precision pour overs and rotating art.',
+  'coffee-near-fayetteville-ga': 'Specialty coffee near Fayetteville, GA and Trilith Studios. Birdhouse Coffee Room in Serenbe is 25 minutes away.',
+  'coffee-near-cochran-mill-park': 'Coffee near Cochran Mill Park — Birdhouse Coffee Room in Serenbe is the closest specialty coffee to 800 acres of trails and waterfalls.',
+  'coffee-near-georgia-renaissance-festival': 'Where to get coffee near the Georgia Renaissance Festival — Birdhouse Coffee Room in Serenbe, 20 minutes from Fairburn.',
+  'best-coffee-south-of-atlanta': 'Best specialty coffee south of Atlanta — Birdhouse Coffee Room & Market in Serenbe, Chattahoochee Hills. Micro-roasted, ethically sourced.',
+};
+
+const VALID_PAGES = new Set<string>(Object.keys(PAGE_TITLES));
+
 const App: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState<Page>('home');
+  const getPageFromHash = useCallback((): Page => {
+    const hash = window.location.hash.replace('#', '');
+    return VALID_PAGES.has(hash) ? (hash as Page) : 'home';
+  }, []);
+
+  const [currentPage, setCurrentPage] = useState<Page>(getPageFromHash);
   const [dropModalOpen, setDropModalOpen] = useState(false);
+
+  const navigateTo = useCallback((page: Page) => {
+    window.location.hash = page === 'home' ? '' : page;
+    setCurrentPage(page);
+  }, []);
+
+  // Listen for hash changes (back/forward navigation)
+  useEffect(() => {
+    const onHashChange = () => setCurrentPage(getPageFromHash());
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, [getPageFromHash]);
+
+  // Update document title and meta description on page change
+  useEffect(() => {
+    document.title = PAGE_TITLES[currentPage] || PAGE_TITLES.home;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', PAGE_DESCRIPTIONS[currentPage] || PAGE_DESCRIPTIONS.home);
+  }, [currentPage]);
 
   // Scroll to top on page change
   useEffect(() => {
@@ -23,7 +96,7 @@ const App: React.FC = () => {
 
   const renderHome = () => (
     <>
-      <Hero onExplore={() => setCurrentPage('menu')} onJoinDrop={() => setDropModalOpen(true)} />
+      <Hero onExplore={() => navigateTo('menu')} onJoinDrop={() => setDropModalOpen(true)} />
 
       {/* From the Roaster Spotlight */}
       <Section className="!py-0 relative z-20">
@@ -89,7 +162,7 @@ const App: React.FC = () => {
             </p>
             <div className="pt-6 flex flex-col sm:flex-row gap-4">
               <button
-                onClick={() => setCurrentPage('about')}
+                onClick={() => navigateTo('about')}
                 className="group flex items-center gap-6 text-espresso font-bold uppercase tracking-[0.2em] text-xs border-b-2 border-espresso pb-2 hover:border-terracotta hover:text-terracotta transition-all"
               >
                 Meet the Creatives <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
@@ -251,7 +324,7 @@ const App: React.FC = () => {
                   Get Directions <MapIcon size={18} />
                 </a>
                 <button
-                  onClick={() => setCurrentPage('visit')}
+                  onClick={() => navigateTo('visit')}
                   className="inline-flex items-center gap-3 px-8 py-5 border border-espresso text-espresso text-xs font-bold uppercase tracking-[0.2em] hover:bg-espresso hover:text-cream transition-all"
                 >
                   <Download size={14} /> Day Trip Guide
@@ -468,7 +541,7 @@ const App: React.FC = () => {
               <Zap size={14} /> Get notified on new collabs
             </button>
             <button
-              onClick={() => setCurrentPage('visit')}
+              onClick={() => navigateTo('visit')}
               className="text-cream/60 text-xs font-bold uppercase tracking-widest border-b border-cream/20 pb-1 hover:text-cream hover:border-cream transition-all"
             >
               Plan your visit
@@ -740,7 +813,7 @@ const App: React.FC = () => {
 
   return (
     <div className="font-sans selection:bg-terracotta/30 scroll-smooth">
-      <Navbar currentPage={currentPage} onNavigate={setCurrentPage} />
+      <Navbar currentPage={currentPage} onNavigate={navigateTo} />
 
       <main>
         <AnimatePresence mode="wait">
@@ -757,6 +830,15 @@ const App: React.FC = () => {
             {currentPage === 'market' && renderMarket()}
             {currentPage === 'events' && renderEvents()}
             {currentPage === 'visit' && renderVisit()}
+            {currentPage === 'faq' && <FAQPage onNavigate={navigateTo} onJoinDrop={() => setDropModalOpen(true)} />}
+            {currentPage === 'coffee-near-palmetto-ga' && <CoffeeNearPalmetto onNavigate={navigateTo} onJoinDrop={() => setDropModalOpen(true)} />}
+            {currentPage === 'coffee-near-fairburn-ga' && <CoffeeNearFairburn onNavigate={navigateTo} onJoinDrop={() => setDropModalOpen(true)} />}
+            {currentPage === 'coffee-near-peachtree-city-ga' && <CoffeeNearPeachtreeCity onNavigate={navigateTo} onJoinDrop={() => setDropModalOpen(true)} />}
+            {currentPage === 'coffee-near-newnan-ga' && <CoffeeNearNewnan onNavigate={navigateTo} onJoinDrop={() => setDropModalOpen(true)} />}
+            {currentPage === 'coffee-near-fayetteville-ga' && <CoffeeNearFayetteville onNavigate={navigateTo} onJoinDrop={() => setDropModalOpen(true)} />}
+            {currentPage === 'coffee-near-cochran-mill-park' && <CoffeeNearCochranMill onNavigate={navigateTo} onJoinDrop={() => setDropModalOpen(true)} />}
+            {currentPage === 'coffee-near-georgia-renaissance-festival' && <CoffeeNearGARenFest onNavigate={navigateTo} onJoinDrop={() => setDropModalOpen(true)} />}
+            {currentPage === 'best-coffee-south-of-atlanta' && <BestCoffeeSouthAtlanta onNavigate={navigateTo} onJoinDrop={() => setDropModalOpen(true)} />}
           </motion.div>
         </AnimatePresence>
       </main>

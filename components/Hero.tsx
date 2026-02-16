@@ -28,7 +28,8 @@ const Hero: React.FC<HeroProps> = ({ onExplore, onJoinDrop }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
         >
-          <img src="/logo.png" alt="Birdhouse Coffee Room" className="h-40 md:h-56 lg:h-64 w-auto mx-auto mb-8 drop-shadow-2xl" />
+          <h1 className="sr-only">Birdhouse Coffee Room & Market — Specialty Coffee in Serenbe, Chattahoochee Hills, Georgia</h1>
+          <img src="/logo.png" alt="Birdhouse Coffee Room & Market — specialty micro-roasted coffee shop in Serenbe, Chattahoochee Hills GA, serving pour over coffee, espresso, tea and pastries in the Grange Hamlet" className="h-40 md:h-56 lg:h-64 w-auto mx-auto mb-8 drop-shadow-2xl" />
           <p className="text-xl md:text-2xl text-cream/80 font-light max-w-2xl mx-auto mb-12 leading-relaxed italic">
             A community worth being part of. First access to roasts, collabs & events in the heart of Grange Hamlet.
           </p>

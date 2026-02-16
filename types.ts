@@ -37,4 +37,4 @@ export interface Testimonial {
   author: string;
 }
 
-export type Page = 'home' | 'menu' | 'about' | 'market' | 'events' | 'visit';
+export type Page = 'home' | 'menu' | 'about' | 'market' | 'events' | 'visit' | 'faq' | 'coffee-near-palmetto-ga' | 'coffee-near-fairburn-ga' | 'coffee-near-peachtree-city-ga' | 'coffee-near-newnan-ga' | 'coffee-near-fayetteville-ga' | 'coffee-near-cochran-mill-park' | 'coffee-near-georgia-renaissance-festival' | 'best-coffee-south-of-atlanta';

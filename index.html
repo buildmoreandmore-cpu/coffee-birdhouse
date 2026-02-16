@@ -1,15 +1,49 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Birdhouse Coffee Room & Market | Serenbe</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Birdhouse Coffee Room & Market | Specialty Coffee in Serenbe, Chattahoochee Hills GA</title>
+    <meta name="description" content="Birdhouse Coffee Room & Market — specialty micro-roasted coffee, curated tea, artisan pastries & rotating art exhibits in the Grange Hamlet of Serenbe, Chattahoochee Hills, GA. Open daily 7:30 AM – 2:00 PM. Visit us 45 minutes south of Atlanta.">
+    <meta name="keywords" content="coffee shop Serenbe, specialty coffee Chattahoochee Hills GA, best coffee south of Atlanta, coffee near Palmetto GA, Serenbe restaurants, things to do in Serenbe, micro roasted coffee Georgia, pour over coffee, coffee cupping, Grange Hamlet, Birdhouse Coffee">
+    <link rel="canonical" href="https://coffee-birdhouse.vercel.app/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Birdhouse Coffee Room & Market | Serenbe, GA">
+    <meta property="og:description" content="Specialty micro-roasted coffee, curated market goods & community events in the Grange Hamlet of Serenbe. 45 minutes south of Atlanta. Open daily 7:30 AM – 2:00 PM.">
+    <meta property="og:image" content="https://coffee-birdhouse.vercel.app/logo.png">
+    <meta property="og:url" content="https://coffee-birdhouse.vercel.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Birdhouse Coffee Room & Market">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Birdhouse Coffee Room & Market | Serenbe, GA">
+    <meta name="twitter:description" content="Specialty micro-roasted coffee & community events in the Grange Hamlet of Serenbe. Open daily 7:30 AM – 2:00 PM.">
+    <meta name="twitter:image" content="https://coffee-birdhouse.vercel.app/logo.png">
+
+    <!-- Geo Tags for Local SEO -->
+    <meta name="geo.region" content="US-GA">
+    <meta name="geo.placename" content="Chattahoochee Hills">
+    <meta name="geo.position" content="33.5303;-84.7554">
+    <meta name="ICBM" content="33.5303, -84.7554">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/logo.png">
+    <link rel="apple-touch-icon" href="/logo.png">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Leaflet CSS for Map -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -46,11 +80,242 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
       }
-      /* Custom map styling to match brand aesthetic */
       .leaflet-container {
         filter: sepia(10%) contrast(90%) brightness(105%) hue-rotate(-10deg);
       }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
     </style>
+
+    <!-- Structured Data: LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CafeOrCoffeeShop",
+      "name": "Birdhouse Coffee Room & Market",
+      "image": "https://coffee-birdhouse.vercel.app/logo.png",
+      "url": "https://coffee-birdhouse.vercel.app",
+      "telephone": "(470) 756-5894",
+      "email": "source@birdhousemarket.info",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "10625 Serenbe Lane, Unit A",
+        "addressLocality": "Chattahoochee Hills",
+        "addressRegion": "GA",
+        "postalCode": "30268",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 33.5303,
+        "longitude": -84.7554
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "07:30",
+          "closes": "14:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday","Sunday"],
+          "opens": "08:00",
+          "closes": "14:00"
+        }
+      ],
+      "servesCuisine": ["Coffee", "Tea", "Pastries", "Breakfast"],
+      "priceRange": "$$",
+      "description": "Specialty micro-roasted coffee, curated tea from Herbs & Kettles, artisan pastries by Bianca Cavandi, and rotating art exhibits in the Grange Hamlet of Serenbe, Chattahoochee Hills, Georgia. Community events including Thursday Cupping Labs and Saturday Story Time.",
+      "areaServed": [
+        "Serenbe", "Chattahoochee Hills", "Palmetto", "Fairburn", "Peachtree City", "Newnan", "Fayetteville", "Tyrone", "South Fulton", "Union City"
+      ],
+      "hasMenu": {
+        "@type": "Menu",
+        "hasMenuSection": [
+          {
+            "@type": "MenuSection",
+            "name": "Coffee",
+            "hasMenuItem": [
+              {"@type": "MenuItem", "name": "Single Origin Drip", "offers": {"@type": "Offer", "price": "4.25", "priceCurrency": "USD"}},
+              {"@type": "MenuItem", "name": "Precision Pour Over", "offers": {"@type": "Offer", "price": "6.50", "priceCurrency": "USD"}},
+              {"@type": "MenuItem", "name": "Signature Espresso", "offers": {"@type": "Offer", "price": "3.50", "priceCurrency": "USD"}}
+            ]
+          }
+        ]
+      },
+      "sameAs": [
+        "https://www.instagram.com/birdhouse.market",
+        "https://www.yelp.com/biz/birdhouse-coffee-room-chattahoochee-hills",
+        "https://www.serenbe.com/businesses/birdhouse-coffee-room"
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: Events -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Event",
+          "name": "Thursday Cupping Lab",
+          "description": "An intimate, technical exploration of our current roast rotation. Learn to identify defects and flavor markers. 12 seats only.",
+          "startDate": "2026-02-19T10:00:00-05:00",
+          "eventSchedule": {
+            "@type": "Schedule",
+            "repeatFrequency": "P1W",
+            "byDay": "Thursday",
+            "startTime": "10:00",
+            "endTime": "11:30"
+          },
+          "location": {
+            "@type": "Place",
+            "name": "Birdhouse Coffee Room & Market",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "10625 Serenbe Lane, Unit A",
+              "addressLocality": "Chattahoochee Hills",
+              "addressRegion": "GA",
+              "postalCode": "30268"
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "12",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/LimitedAvailability"
+          },
+          "maximumAttendeeCapacity": 12
+        },
+        {
+          "@type": "Event",
+          "name": "Saturday Story Time at Birdhouse",
+          "description": "A Serenbe community staple. Warm milk, fresh pastries, and unhurried local tales for the little ones.",
+          "startDate": "2026-02-21T09:30:00-05:00",
+          "eventSchedule": {
+            "@type": "Schedule",
+            "repeatFrequency": "P1W",
+            "byDay": "Saturday",
+            "startTime": "09:30",
+            "endTime": "10:30"
+          },
+          "location": {
+            "@type": "Place",
+            "name": "Birdhouse Coffee Room & Market",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "10625 Serenbe Lane, Unit A",
+              "addressLocality": "Chattahoochee Hills",
+              "addressRegion": "GA",
+              "postalCode": "30268"
+            }
+          },
+          "isAccessibleForFree": true
+        },
+        {
+          "@type": "Event",
+          "name": "Artisan Dialogue: Bianca Cavandi",
+          "description": "A deep-dive into the science of lamination and the craft of seasonal pastry collaboration at Birdhouse Coffee Room.",
+          "startDate": "2026-03-14T11:00:00-05:00",
+          "location": {
+            "@type": "Place",
+            "name": "Birdhouse Coffee Room & Market",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "10625 Serenbe Lane, Unit A",
+              "addressLocality": "Chattahoochee Hills",
+              "addressRegion": "GA",
+              "postalCode": "30268"
+            }
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: FAQ for featured snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is there a coffee shop in Serenbe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Birdhouse Coffee Room & Market is located in the Grange Hamlet of Serenbe at 10625 Serenbe Lane, Unit A, Chattahoochee Hills, GA 30268. We serve specialty micro-roasted coffee, curated tea from Herbs & Kettles, artisan pastries, and quick bites. Open daily starting at 7:30 AM."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the hours of Birdhouse Coffee Room?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Birdhouse Coffee Room is open Monday-Friday 7:30 AM – 2:00 PM and Saturday-Sunday 8:00 AM – 2:00 PM."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How far is Serenbe from Atlanta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Serenbe is about 45 minutes (35 miles) southwest of downtown Atlanta, located in Chattahoochee Hills, GA. Take I-85 South to Hwy 74, then follow signs to Serenbe."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where to get coffee near Cochran Mill Park?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Birdhouse Coffee Room & Market in Serenbe is the closest specialty coffee shop to Cochran Mill Park, just a short drive away. Grab a pour-over or espresso before or after your hike on Cochran Mill's 18 miles of trails."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where to eat breakfast in Serenbe GA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Birdhouse Coffee Room opens at 7:30 AM and serves specialty coffee, artisan pastries from Bianca Cavandi, sourdough tartines, and quick bites. Located in the Grange Hamlet next to Hills & Hamlets Bookshop."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Birdhouse Coffee have events?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! We host weekly Thursday Cupping Labs ($12/person, 12 seats only), Saturday Story Time for kids, Wednesday Night Cafe, and rotating artisan dialogues with our collaborators. Join The Drop for early RSVP access."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you buy coffee beans at Birdhouse?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Our market features whole-bean bags of our micro-roasts and partner roasts from Portrait Coffee, Chrome Yellow, and Dancing Goats. We also sell brewing equipment, artisan goods, and Herbs & Kettles tea."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where to get coffee near the Georgia Renaissance Festival?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Birdhouse Coffee Room in Serenbe is a great coffee stop near the Georgia Renaissance Festival in Fairburn. Enjoy specialty coffee and pastries before or after your Ren Fest adventure. We're about 20 minutes from the festival grounds."
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
