@@ -15,7 +15,7 @@ const Hero: React.FC<HeroProps> = ({ onExplore, onJoinDrop }) => {
       <div
         className="absolute inset-0 opacity-50 bg-cover bg-center scale-105"
         style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=2000")',
+          backgroundImage: 'url("/photos/IMG_2575.jpg")',
           filter: 'sepia(30%) contrast(110%) brightness(0.8)'
         }}
       />

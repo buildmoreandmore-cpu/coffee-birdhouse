@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import Section from './components/Section';
 import Footer from './components/Footer';
 import InteractiveMap from './components/InteractiveMap';
+import VisitPage from './components/VisitPage';
 import TheDropModal from './components/TheDropModal';
 import ExitIntentPopup from './components/ExitIntentPopup';
 import {
@@ -21,7 +22,7 @@ import {
 import { Page } from './types';
 import { MENU_ITEMS, PARTNERS, EVENTS, TESTIMONIALS } from './constants';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Coffee, Star, Map as MapIcon, ChevronRight, Zap, Download, Palette, MapPin, Calendar, Camera } from 'lucide-react';
+import { ArrowRight, Coffee, Star, Map as MapIcon, ChevronRight, Zap, Download, Palette, MapPin, Camera } from 'lucide-react';
 
 const PAGE_TITLES: Record<Page, string> = {
   home: 'Birdhouse Coffee Room & Market — Specialty Coffee in Serenbe, Chattahoochee Hills GA',
@@ -141,8 +142,8 @@ const App: React.FC = () => {
             <div className="relative">
               <div className="aspect-[4/5] bg-linen overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=1200"
-                  alt="Birdhouse Interior"
+                  src="/photos/IMG_2861.jpg"
+                  alt="Birdhouse Coffee Room interior — fireplace corner with coffee bag art and cozy seating"
                   className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700"
                 />
               </div>
@@ -449,8 +450,8 @@ const App: React.FC = () => {
           <div>
             <div className="aspect-[4/5] bg-sage/10 overflow-hidden shadow-2xl relative">
               <img
-                src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&q=80&w=1200"
-                alt="Current Art Exhibit"
+                src="/photos/IMG_2952.jpg"
+                alt="Birdhouse Coffee Room art wall with paintings — river map, aurora barn, and colorful prints"
                 className="w-full h-full object-cover"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-warmblack/80 to-transparent p-8">
@@ -491,21 +492,21 @@ const App: React.FC = () => {
             {
               title: 'Portrait Coffee',
               role: 'Roasting Partner',
-              image: 'https://images.unsplash.com/photo-1447933601403-56dc2df5e78f?auto=format&fit=crop&q=80&w=800',
+              image: '/photos/IMG_2559.jpg',
               story: 'Founded in Atlanta with a mission to diversify specialty coffee. Their Ethiopia Sidama is our current spotlight — chosen for its bergamot florality and precision processing.',
               location: 'Atlanta, GA'
             },
             {
               title: 'Bianca Cavandi',
               role: 'Pastry Collaborator',
-              image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=800',
+              image: '/photos/IMG_2558.jpg',
               story: 'A small-batch lamination artist whose seasonal pastries rotate monthly at Birdhouse. Her work is a study in butter, flour, and patience — the anti-industrial approach.',
               location: 'Serenbe, GA'
             },
             {
               title: 'Hills & Hamlets Bookstore',
               role: 'Neighbor & Community Partner',
-              image: 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&q=80&w=800',
+              image: '/photos/IMG_2565.jpg',
               story: 'Right next door. Their curation of independent titles and our craft pour-overs create a natural rhythm — browse, then sit with something beautiful.',
               location: 'Grange Hamlet, Serenbe'
             }
@@ -551,136 +552,6 @@ const App: React.FC = () => {
       </Section>
     </div>
   );
-
-  // LEAD MAGNET 3: Serenbe Saturday — Visit/Day Trip Page
-  const renderVisit = () => {
-    const [guideEmail, setGuideEmail] = useState('');
-    const [guideDownloaded, setGuideDownloaded] = useState(false);
-
-    const handleGuideDownload = (e: React.FormEvent) => {
-      e.preventDefault();
-      if (guideEmail) setGuideDownloaded(true);
-    };
-
-    return (
-      <div className="pt-32 bg-cream min-h-screen">
-        {/* Hero */}
-        <Section>
-          <div className="max-w-5xl mx-auto text-center space-y-8">
-            <span className="text-gold font-bold tracking-[0.4em] uppercase text-xs">Your First Visit</span>
-            <h1 className="text-6xl md:text-8xl font-serif text-espresso tracking-tight leading-none">
-              Serenbe Saturday
-            </h1>
-            <p className="text-xl md:text-2xl font-light text-espresso/60 leading-relaxed italic max-w-3xl mx-auto">
-              From Atlanta to Serenbe in 45 minutes. A day you won't forget.
-            </p>
-            <div className="w-32 h-[2px] bg-terracotta mx-auto" />
-          </div>
-        </Section>
-
-        {/* Guide Download CTA */}
-        <Section className="bg-linen/50">
-          <div className="max-w-3xl mx-auto">
-            <div className="bg-cream p-12 md:p-16 shadow-xl border-t-4 border-gold">
-              <div className="flex items-center gap-3 mb-6">
-                <Download size={18} className="text-gold" />
-                <span className="text-gold font-bold tracking-[0.3em] uppercase text-[10px]">Free Guide</span>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-serif text-espresso mb-4 leading-tight">
-                The Perfect Serenbe Saturday
-              </h2>
-              <p className="text-lg text-espresso/70 font-light leading-relaxed mb-2">
-                Coffee, trails & everything in between. Your insider's guide to a perfect day trip starting at Birdhouse.
-              </p>
-              <p className="text-sm text-espresso/50 mb-8">
-                Makes the 45-minute drive feel like a pilgrimage, not a commute.
-              </p>
-
-              {!guideDownloaded ? (
-                <form onSubmit={handleGuideDownload} className="flex flex-col sm:flex-row gap-3">
-                  <input
-                    type="email"
-                    value={guideEmail}
-                    onChange={(e) => setGuideEmail(e.target.value)}
-                    placeholder="Email for your free guide"
-                    required
-                    className="flex-1 px-5 py-4 bg-linen border border-espresso/10 text-espresso text-sm focus:outline-none focus:border-gold transition-colors placeholder:text-espresso/30"
-                  />
-                  <button
-                    type="submit"
-                    className="px-8 py-4 bg-espresso text-cream text-xs font-bold uppercase tracking-[0.2em] hover:bg-terracotta transition-all whitespace-nowrap"
-                  >
-                    Get the Guide
-                  </button>
-                </form>
-              ) : (
-                <div className="bg-sage/10 p-6 text-center">
-                  <p className="text-lg font-serif text-espresso">Check your inbox — your Saturday starts now.</p>
-                  <p className="text-sm text-espresso/50 mt-2 italic">Start your Saturday at the Room. We open at 7:30.</p>
-                </div>
-              )}
-            </div>
-          </div>
-        </Section>
-
-        {/* The Itinerary Preview */}
-        <Section>
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-serif text-espresso mb-16 text-center">A Day at Serenbe</h2>
-            <div className="space-y-0">
-              {[
-                { time: '7:30 AM', title: 'First Pour at Birdhouse', description: 'Start with our Single Origin Drip or a Precision Pour Over. Grab a window seat and let the morning light do its thing.', icon: <Coffee size={20} /> },
-                { time: '9:00 AM', title: 'The Trails', description: 'Step outside and walk the 15 miles of nature trails winding through Serenbe. The forest canopy is a different world from the city you just left.', icon: <MapPin size={20} /> },
-                { time: '11:00 AM', title: 'Hills & Hamlets Bookstore', description: 'Right next door to Birdhouse. Browse their curated selection of indie titles, local zines, and beautifully printed goods.', icon: <Palette size={20} /> },
-                { time: '12:00 PM', title: 'Lunch in the Hamlet', description: 'The Farmhouse restaurant sources directly from Serenbe Farms. Or grab something lighter from the market — either way, you\'re eating local.', icon: <Calendar size={20} /> },
-                { time: '2:00 PM', title: 'The Farm & Art Walk', description: 'Visit Serenbe Farms, explore the rotating public art installations, and discover why this community draws creatives from across the Southeast.', icon: <Camera size={20} /> },
-              ].map((stop, i) => (
-                <div key={i} className="flex gap-8 group">
-                  <div className="flex flex-col items-center">
-                    <div className="w-12 h-12 rounded-full bg-linen border-2 border-espresso/10 flex items-center justify-center text-terracotta group-hover:border-terracotta group-hover:bg-terracotta/5 transition-all">
-                      {stop.icon}
-                    </div>
-                    {i < 4 && <div className="w-[2px] h-full min-h-[80px] bg-espresso/10" />}
-                  </div>
-                  <div className="pb-16">
-                    <span className="text-[10px] uppercase tracking-[0.3em] text-terracotta font-bold">{stop.time}</span>
-                    <h3 className="text-2xl font-serif text-espresso mt-2 mb-3">{stop.title}</h3>
-                    <p className="text-base text-espresso/60 font-light leading-relaxed max-w-lg">{stop.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Section>
-
-        {/* Visit CTA */}
-        <Section dark className="bg-espresso text-center">
-          <div className="max-w-2xl mx-auto space-y-8">
-            <h2 className="text-4xl md:text-5xl font-serif text-cream leading-tight">
-              Start your Saturday<br />at the Room.
-            </h2>
-            <p className="text-cream/60 text-lg font-light">We open at 7:30. Bring someone you've been meaning to catch up with.</p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">
-              <a
-                href="https://www.google.com/maps/dir/?api=1&destination=10625+Serenbe+Lane+Unit+A+Chattahoochee+Hills+GA+30268"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-3 px-10 py-5 bg-terracotta text-cream text-xs font-bold uppercase tracking-[0.2em] hover:bg-gold hover:text-warmblack transition-all"
-              >
-                <MapIcon size={16} /> Get Directions
-              </a>
-              <button
-                onClick={() => setDropModalOpen(true)}
-                className="flex items-center gap-2 text-cream/60 text-xs font-bold uppercase tracking-widest border-b border-cream/20 pb-1 hover:text-cream hover:border-cream transition-all"
-              >
-                <Zap size={12} /> Join The Drop
-              </button>
-            </div>
-          </div>
-        </Section>
-      </div>
-    );
-  };
 
   // Market Page with Drop Member Badges
   const renderMarket = () => (
@@ -829,7 +700,7 @@ const App: React.FC = () => {
             {currentPage === 'about' && renderAbout()}
             {currentPage === 'market' && renderMarket()}
             {currentPage === 'events' && renderEvents()}
-            {currentPage === 'visit' && renderVisit()}
+            {currentPage === 'visit' && <VisitPage onJoinDrop={() => setDropModalOpen(true)} />}
             {currentPage === 'faq' && <FAQPage onNavigate={navigateTo} onJoinDrop={() => setDropModalOpen(true)} />}
             {currentPage === 'coffee-near-palmetto-ga' && <CoffeeNearPalmetto onNavigate={navigateTo} onJoinDrop={() => setDropModalOpen(true)} />}
             {currentPage === 'coffee-near-fairburn-ga' && <CoffeeNearFairburn onNavigate={navigateTo} onJoinDrop={() => setDropModalOpen(true)} />}
