@@ -4,7 +4,7 @@ import Section from './Section';
 import InteractiveMap from './InteractiveMap';
 import {
   Coffee, MapPin, Palette, Calendar, Camera, Download, ChevronRight,
-  Zap, Clock, CreditCard, Users, Map as MapIcon, ArrowRight,
+  Bird, Clock, CreditCard, Users, Map as MapIcon, ArrowRight,
 } from 'lucide-react';
 
 interface VisitPageProps {
@@ -457,7 +457,7 @@ const VisitPage: React.FC<VisitPageProps> = ({ onJoinDrop }) => {
               onClick={onJoinDrop}
               className="flex items-center gap-2 text-cream/60 text-xs font-bold uppercase tracking-widest border-b border-cream/20 pb-1 hover:text-cream hover:border-cream transition-all"
             >
-              <Zap size={12} /> Join The Drop
+              <Bird size={12} /> Join The Drop
             </button>
           </div>
         </div>

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Section from './Section';
-import { Coffee, MapPin, Clock, Phone, ChevronRight, Zap, ArrowRight } from 'lucide-react';
+import { Coffee, MapPin, Clock, Phone, ChevronRight, Bird, ArrowRight } from 'lucide-react';
 
 interface SEOPageProps {
   onNavigate: (page: string) => void;
@@ -30,7 +30,7 @@ const DropCTA: React.FC<{ onJoinDrop: () => void }> = ({ onJoinDrop }) => (
     <div className="flex flex-col md:flex-row items-center justify-between gap-8 max-w-4xl mx-auto">
       <div>
         <div className="flex items-center gap-2 text-gold mb-3">
-          <Zap size={14} />
+          <Bird size={14} />
           <span className="font-bold tracking-[0.3em] uppercase text-[10px]">The Drop</span>
         </div>
         <h3 className="text-2xl font-serif text-cream">Get first access to new roasts & events.</h3>
@@ -39,7 +39,7 @@ const DropCTA: React.FC<{ onJoinDrop: () => void }> = ({ onJoinDrop }) => (
         onClick={onJoinDrop}
         className="shrink-0 flex items-center gap-3 px-10 py-5 bg-terracotta text-cream text-xs font-bold uppercase tracking-[0.2em] hover:bg-gold hover:text-warmblack transition-all"
       >
-        <Zap size={14} /> Join The Drop
+        <Bird size={14} /> Join The Drop
       </button>
     </div>
   </div>

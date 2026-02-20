@@ -22,7 +22,7 @@ import {
 import { Page } from './types';
 import { MENU_ITEMS, PARTNERS, EVENTS, TESTIMONIALS } from './constants';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Coffee, Star, Map as MapIcon, ChevronRight, Zap, Download, Palette, MapPin, Camera } from 'lucide-react';
+import { ArrowRight, Coffee, Star, Map as MapIcon, ChevronRight, Bird, Download, Palette, MapPin, Camera } from 'lucide-react';
 
 const PAGE_TITLES: Record<Page, string> = {
   home: 'Birdhouse Coffee Room & Market — Specialty Coffee in Serenbe, Chattahoochee Hills GA',
@@ -225,7 +225,7 @@ const App: React.FC = () => {
             onClick={() => setDropModalOpen(true)}
             className="inline-flex items-center gap-3 px-10 py-4 border border-gold/30 text-gold text-xs font-bold uppercase tracking-[0.2em] hover:bg-gold/10 transition-all"
           >
-            <Zap size={14} /> Drop members get first pour on new roasts
+            <Bird size={14} /> Drop members get first pour on new roasts
           </button>
         </div>
       </Section>
@@ -258,7 +258,7 @@ const App: React.FC = () => {
             onClick={() => setDropModalOpen(true)}
             className="flex items-center gap-2 text-terracotta text-xs font-bold uppercase tracking-widest border-b border-terracotta pb-2 hover:text-espresso hover:border-espresso transition-all"
           >
-            <Zap size={12} /> Drop members get early RSVP
+            <Bird size={12} /> Drop members get early RSVP
           </button>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
@@ -539,7 +539,7 @@ const App: React.FC = () => {
               onClick={() => setDropModalOpen(true)}
               className="flex items-center gap-3 px-10 py-5 bg-terracotta text-cream text-xs font-bold uppercase tracking-[0.2em] hover:bg-gold hover:text-warmblack transition-all"
             >
-              <Zap size={14} /> Get notified on new collabs
+              <Bird size={14} /> Get notified on new collabs
             </button>
             <button
               onClick={() => navigateTo('visit')}
@@ -579,7 +579,7 @@ const App: React.FC = () => {
             <div key={i} className="group bg-linen p-10 relative hover:shadow-lg transition-all duration-500">
               {product.badge && (
                 <div className="absolute top-4 right-4 flex items-center gap-1 bg-gold/10 text-gold px-3 py-1 text-[9px] font-bold uppercase tracking-widest z-10">
-                  <Zap size={10} /> Drop First
+                  <Bird size={10} /> Drop First
                 </div>
               )}
               <div className="aspect-square bg-cream mb-8 overflow-hidden">
@@ -603,7 +603,7 @@ const App: React.FC = () => {
       <Section dark className="bg-espresso text-center">
         <div className="max-w-2xl mx-auto space-y-8">
           <div className="flex items-center justify-center gap-2 text-gold">
-            <Zap size={18} />
+            <Bird size={18} />
             <span className="font-bold tracking-[0.3em] uppercase text-xs">The Drop</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-serif text-cream leading-tight">
@@ -616,7 +616,7 @@ const App: React.FC = () => {
             onClick={() => setDropModalOpen(true)}
             className="inline-flex items-center gap-3 px-12 py-5 bg-terracotta text-cream text-xs font-bold uppercase tracking-[0.2em] hover:bg-gold hover:text-warmblack transition-all"
           >
-            <Zap size={14} /> Be First — Join The Drop
+            <Bird size={14} /> Be First — Join The Drop
           </button>
         </div>
       </Section>
@@ -665,7 +665,7 @@ const App: React.FC = () => {
         <div className="bg-espresso p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
             <div className="flex items-center gap-2 text-gold mb-3">
-              <Zap size={14} />
+              <Bird size={14} />
               <span className="font-bold tracking-[0.3em] uppercase text-[10px]">Drop Members</span>
             </div>
             <h3 className="text-3xl font-serif text-cream">Get early RSVP access to every event.</h3>
@@ -675,7 +675,7 @@ const App: React.FC = () => {
             onClick={() => setDropModalOpen(true)}
             className="shrink-0 flex items-center gap-3 px-10 py-5 bg-terracotta text-cream text-xs font-bold uppercase tracking-[0.2em] hover:bg-gold hover:text-warmblack transition-all"
           >
-            <Zap size={14} /> Join The Drop
+            <Bird size={14} /> Join The Drop
           </button>
         </div>
       </Section>

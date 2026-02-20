@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Zap } from 'lucide-react';
+import { ChevronDown, Bird } from 'lucide-react';
 
 interface HeroProps {
   onExplore: () => void;
@@ -39,7 +39,7 @@ const Hero: React.FC<HeroProps> = ({ onExplore, onJoinDrop }) => {
               onClick={onJoinDrop}
               className="group px-12 py-5 bg-terracotta text-cream text-xs font-bold tracking-[0.2em] uppercase hover:bg-roast transition-all duration-500 shadow-xl flex items-center gap-3"
             >
-              <Zap size={14} /> Join The Drop
+              <Bird size={14} /> Join The Drop
             </button>
             <button
               onClick={onExplore}

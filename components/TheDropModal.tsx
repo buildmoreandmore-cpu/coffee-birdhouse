@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Zap } from 'lucide-react';
+import { X, Bird } from 'lucide-react';
 
 interface TheDropModalProps {
   isOpen: boolean;
@@ -54,7 +54,7 @@ const TheDropModal: React.FC<TheDropModalProps> = ({ isOpen, onClose }) => {
               {!submitted ? (
                 <>
                   <div className="flex items-center gap-3 mb-6">
-                    <Zap size={16} className="text-terracotta" />
+                    <Bird size={16} className="text-terracotta" />
                     <span className="text-terracotta font-bold tracking-[0.3em] uppercase text-[10px]">The Drop</span>
                   </div>
                   <h2 className="text-4xl md:text-5xl font-serif text-espresso mb-4 leading-tight">

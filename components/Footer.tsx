@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Instagram, MapPin, Phone, Mail, Zap } from 'lucide-react';
+import { Instagram, MapPin, Phone, Mail, Bird } from 'lucide-react';
 
 const FooterDropForm: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
         {/* The Drop CTA */}
         <div>
           <div className="flex items-center gap-2 mb-6">
-            <Zap size={14} className="text-gold" />
+            <Bird size={14} className="text-gold" />
             <h3 className="text-cream text-sm font-bold tracking-widest uppercase">The Drop</h3>
           </div>
           <p className="text-xs mb-4 leading-relaxed">First access to new roasts, limited collabs & event RSVPs before they go public.</p>
