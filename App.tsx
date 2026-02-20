@@ -492,7 +492,7 @@ const App: React.FC = () => {
             {
               title: 'Portrait Coffee',
               role: 'Roasting Partner',
-              image: '/photos/IMG_2559.jpg',
+              image: '/photos/IMG_2705.jpg',
               story: 'Founded in Atlanta with a mission to diversify specialty coffee. Their Ethiopia Sidama is our current spotlight — chosen for its bergamot florality and precision processing.',
               location: 'Atlanta, GA'
             },
@@ -569,21 +569,21 @@ const App: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {[
-            { name: 'Ethiopia Sidama Bensa — Whole Bean', price: '$22', weight: '12 oz bag', partner: 'Portrait Coffee', badge: true },
-            { name: 'Birdhouse Signature Blend', price: '$18', weight: '12 oz bag', partner: 'In-House Roast', badge: true },
-            { name: 'Colombia Huila — Pour Over Grind', price: '$24', weight: '12 oz bag', partner: 'Chrome Yellow', badge: true },
-            { name: 'Herbs & Kettles Nilgiri Tea', price: '$16', weight: '50g tin', partner: 'Direct Trade' },
-            { name: 'Ceramic Pour Over Set', price: '$48', weight: 'Handmade', partner: 'Local Ceramicist' },
-            { name: 'Birdhouse Tote — Canvas', price: '$28', weight: 'Organic Cotton', partner: 'Serenbe Made' },
+            { name: 'Ethiopia Sidama Bensa — Whole Bean', price: '$22', weight: '12 oz bag', partner: 'Portrait Coffee', badge: true, image: '/photos/IMG_2705.jpg', alt: 'Espresso pouring into branded Birdhouse cup' },
+            { name: 'Birdhouse Signature Blend', price: '$18', weight: '12 oz bag', partner: 'In-House Roast', badge: true, image: '/photos/IMG_2559.jpg', alt: 'Birdhouse Coffee Roasters bag with Roast Magazine' },
+            { name: 'Colombia Huila — Pour Over Grind', price: '$24', weight: '12 oz bag', partner: 'Chrome Yellow', badge: true, image: '/photos/IMG_2742.jpg', alt: 'Latte art pour into Birdhouse branded cup' },
+            { name: 'Herbs & Kettles Nilgiri Tea', price: '$16', weight: '50g tin', partner: 'Direct Trade', image: '/photos/BirdhouseTea.jpg', alt: 'Tea pour into glass cup with plant in background' },
+            { name: 'Ceramic Pour Over Set', price: '$48', weight: 'Handmade', partner: 'Local Ceramicist', image: '/photos/IMG_2933.jpg', alt: 'Gooseneck kettle pouring into V60 dripper with glass carafe' },
+            { name: 'Birdhouse Tote — Canvas', price: '$28', weight: 'Organic Cotton', partner: 'Serenbe Made', image: '/photos/IMG_2699.jpg', alt: 'Birdhouse branded mugs — Where Friends Are Made' },
           ].map((product, i) => (
             <div key={i} className="group bg-linen p-10 relative hover:shadow-lg transition-all duration-500">
               {product.badge && (
-                <div className="absolute top-4 right-4 flex items-center gap-1 bg-gold/10 text-gold px-3 py-1 text-[9px] font-bold uppercase tracking-widest">
+                <div className="absolute top-4 right-4 flex items-center gap-1 bg-gold/10 text-gold px-3 py-1 text-[9px] font-bold uppercase tracking-widest z-10">
                   <Zap size={10} /> Drop First
                 </div>
               )}
-              <div className="aspect-square bg-cream mb-8 flex items-center justify-center">
-                <Coffee size={48} className="text-espresso/10" />
+              <div className="aspect-square bg-cream mb-8 overflow-hidden">
+                <img src={product.image} alt={product.alt} loading="lazy" className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700" />
               </div>
               <span className="text-[10px] uppercase tracking-[0.3em] text-terracotta font-bold">{product.partner}</span>
               <h3 className="text-xl font-serif text-espresso mt-2 mb-2 group-hover:text-terracotta transition-colors">{product.name}</h3>
