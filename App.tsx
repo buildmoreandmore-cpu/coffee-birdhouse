@@ -100,7 +100,7 @@ const App: React.FC = () => {
       <Hero onExplore={() => navigateTo('menu')} onJoinDrop={() => setDropModalOpen(true)} />
 
       {/* From the Roaster Spotlight */}
-      <Section className="!py-0 relative z-20">
+      <Section className="!py-0 !overflow-visible relative z-20">
         <div className="bg-linen max-w-4xl mx-auto -mt-20 p-12 md:p-16 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 p-8 opacity-5">
             <Coffee size={120} />
