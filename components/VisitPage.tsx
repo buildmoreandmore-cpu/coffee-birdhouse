@@ -206,7 +206,7 @@ const VisitPage: React.FC<VisitPageProps> = ({ onJoinDrop }) => {
               {
                 time: '2:00 PM',
                 title: 'The Farm & Art Walk',
-                description: 'Visit Serenbe Farms, explore the rotating public art installations, and discover why this community draws creatives from across the Southeast.',
+                description: 'Visit Serenbe Farms, explore the rotating public art installations, and discover why Steve Nygren\'s 1,400-acre biophilic community draws creatives from across the Southeast.',
                 icon: <Camera size={20} />,
                 tip: 'Farm tours are $18/person and run on Saturdays. Book ahead — they\'re popular.',
               },
